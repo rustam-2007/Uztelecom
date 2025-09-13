@@ -18,26 +18,27 @@
 
       <!-- Actions -->
       <div class="flex items-center space-x-3">
-        <div class="hidden lg:flex space-x-3">
-          <button
-            class="bg-[#174880] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#133b6a] transition"
-          >
-            Kirish
-          </button>
-          <button
-            class="bg-white border-2 border-[#174880] text-[#174880] px-5 py-2.5 rounded-lg font-semibold hover:bg-[#f0f6fb] transition"
-          >
-            Til
-          </button>
+        <button
+          class="hidden md:block lg:block bg-[#174880] text-white px-5 py-2.5 rounded-lg font-medium hover:bg-[#133b6a] transition"
+        >
+          Kirish
+        </button>
+        <button
+          class="bg-white hidden md:block lg:block border-2 border-[#174880] text-[#174880] px-5 py-2.5 rounded-lg font-semibold hover:bg-[#f0f6fb] transition"
+        >
+          Til
+        </button>
+
+        <div class="hidden lg:block">
+          <img src="../assets/icons/theme-icon.svg" alt="MOON" class="h-8 w-8 cursor-pointer" />
         </div>
-        <img
-          src="../assets/icons/theme-icon.svg"
-          alt="Theme"
-          class="h-8 w-8 cursor-pointer hidden lg:block"
-        />
-        <img class="block md:hidden" src="../assets/icons/star.svg" alt="" />
+
+        <div class="block sm:hidden">
+          <img src="../assets/icon3.svg" alt="STAR" class="h-10" />
+        </div>
+
         <!-- Burger (mobile) -->
-        <div class="hidden md:block lg:hidden">
+        <div class="hidden sm:block md:block lg:hidden">
           <BurgerComponent />
         </div>
       </div>
