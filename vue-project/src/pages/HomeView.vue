@@ -2,10 +2,7 @@
 
 <template>
   <div>Home</div>
-  <p class="text-2xl">
-    buxgalteriya hisobini yuriting, savdo va xizmatlaringizni dunyoning istalgan nuqtasidan
-    boshqaring.
-  </p>
+  <p class="text-2xl">1C UZTELECOM - bu nima?</p>
 </template>
 <style>
 .text-2x1 {
