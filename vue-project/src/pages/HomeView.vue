@@ -1,5 +1,6 @@
 <script setup>
-import { reactive } from 'vue'
+import AcardionComponent from '@/components/AcardionComponent.vue'
+import { reactive, ref } from 'vue'
 
 const form = reactive({
   company: '',
@@ -9,6 +10,8 @@ const form = reactive({
   phone: '',
   accept: false,
 })
+
+const checked = ref(false)
 
 function submitForm() {
   if (!form.accept) {
@@ -21,20 +24,21 @@ function submitForm() {
 </script>
 
 <template>
-  <div>
+  <div
+    class="container mx-auto p-4 lg:p-0 bg-white text-gray-900 dark:bg-[#0A1F44] dark:text-gray-100 transition-colors duration-300"
+  >
     <!-- Hero qismi -->
-    <div class="flex items-center ml-8">
-      <div class="flex flex-col mt-14">
-        <h1 class="text-6xl font-bold">
-          UZTELECOMdan <br />
+    <div class="flex flex-col xl:flex-row items-start lg:items-center justify-between md:px-12">
+      <div class="flex flex-col text-start">
+        <h1 class="text-2xl md:text-6xl font-bold">
+          UZTELECOMdan <br class="hidden md:block" />
           1C bulutli xizmati
         </h1>
-        <p class="text-2xl mt-4">
-          buxgalteriya hisobini yuriting, savdo va <br />
-          xizmatlaringizni dunyoning istalgan <br />
-          nuqtasidan boshqaring.
+        <p class="text-lg md:text-2xl mt-4">
+          buxgalteriya hisobini yuriting, savdo va xizmatlaringizni <br class="hidden md:block" />
+          dunyoning istalgan nuqtasidan boshqaring.
         </p>
-        <div class="flex space-x-3 mt-12">
+        <div class="flex flex-col sm:flex-row justify-start gap-3 mt-8">
           <button
             class="bg-[#16437E] text-white font-bold px-6 py-3 rounded-2xl hover:bg-[#123567] transition"
           >
@@ -47,86 +51,104 @@ function submitForm() {
           </button>
         </div>
       </div>
-      <img class="ml-32" src="../assets/img/Frame 2147223825.png" alt="" />
+      <img class="mt-8 md:mt-0" src="../assets/img/Frame 2147223825.png" alt="Hero Image" />
     </div>
 
     <!-- Form boshi -->
-    <div class="px-10 mb-20">
-      <h1 class="text-3xl font-bold ml-40 mt-12">Ariza yuborish</h1>
+    <div class="mb-20 px-0 lg:px-14 transition-colors duration-300 bg-white dark:bg-[#0f172a]">
+      <h1 class="text-2xl md:text-3xl font-bold text-center mt-12 text-gray-900 dark:text-gray-100">
+        Ariza yuborish
+      </h1>
 
       <!-- Radio tanlov -->
-      <fieldset class="flex justify-center items-center space-x-24 mt-8 mx-12">
-        <div class="flex items-center space-x-2">
-          <input type="radio" id="dewey" name="drone" value="dewey" />
+      <fieldset class="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-24 mt-8">
+        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-200">
+          <input
+            type="radio"
+            id="dewey"
+            name="drone"
+            value="dewey"
+            class="text-blue-600 focus:ring-blue-500"
+          />
           <label for="dewey">Yuridik shaxs</label>
         </div>
 
-        <div class="flex items-center space-x-2">
-          <input type="radio" id="louie" name="drone" value="louie" />
+        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-200">
+          <input
+            type="radio"
+            id="louie"
+            name="drone"
+            value="louie"
+            class="text-blue-600 focus:ring-blue-500"
+          />
           <label for="louie">Jismoniy shaxs</label>
         </div>
       </fieldset>
 
       <!-- Forma -->
       <form
-        class="w-full max-w-3xl bg-white rounded-2xl p-6 mt-10 mx-auto space-y-4"
+        class="w-full max-w-3xl bg-white dark:bg-gray-800 rounded-2xl mt-10 mx-auto space-y-4 transition-colors duration-300"
         @submit.prevent="submitForm"
       >
         <!-- Tashkilot nomi & STIR -->
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-medium text-gray-700 py-4 px-2">Tashkilot nomi</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >Tashkilot nomi</label
+            >
             <input
               v-model="form.company"
               type="text"
               placeholder='MChJ "Namuna"'
-              class="mt-1 block w-full rounded-lg py-4 px-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              class="mt-1 block w-full rounded-lg py-3 px-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
           <div>
-            <label class="block text-sm font-medium py-4 px-2 text-gray-700">STIR</label>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">STIR</label>
             <input
               v-model="form.stir"
               type="text"
               placeholder="123456789"
-              class="mt-1 block w-full rounded-lg py-4 px-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              class="mt-1 block w-full rounded-lg py-3 px-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
         </div>
 
         <!-- F.I.Sh -->
         <div>
-          <label class="block text-sm font-medium py-4 px-2 text-gray-700">F.I.Sh *</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">F.I.Sh *</label>
           <input
             v-model="form.fullName"
             type="text"
             placeholder="Zuxriddin Akbarov Xusanovich"
             required
-            class="mt-1 block w-full rounded-lg py-4 px-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            class="mt-1 block w-full rounded-lg py-3 px-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
         <!-- Email -->
         <div>
-          <label class="block text-sm font-medium text-gray-700">Email *</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email *</label>
           <input
             v-model="form.email"
             type="email"
             placeholder="example@email.com"
             required
-            class="mt-1 block w-full rounded-lg py-4 px-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            class="mt-1 block w-full rounded-lg py-3 px-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
         <!-- Telefon -->
         <div>
-          <label class="block text-sm font-medium text-gray-700 py-4 px-2">Telefon *</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >Telefon *</label
+          >
           <input
             v-model="form.phone"
             type="tel"
             placeholder="+998 (33) 123 45 67"
             required
-            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm py-4 px-2 focus:border-blue-500 focus:ring-blue-500"
+            class="mt-1 block w-full rounded-lg py-3 px-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
         </div>
 
@@ -136,13 +158,13 @@ function submitForm() {
             v-model="form.accept"
             type="checkbox"
             id="accept"
-            class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            class="h-4 w-4 text-blue-600 border-gray-300 dark:border-gray-500 rounded focus:ring-blue-500"
           />
-          <label for="accept" class="ml-2 text-sm text-gray-600 py-4 px-2">
+          <label for="accept" class="ml-2 text-sm text-gray-600 dark:text-gray-300">
             “Qabul qilaman” tugmasini bosish orqali Men
-            <a href="#" class="text-blue-600 hover:underline">Ommaviy oferta</a>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Ommaviy oferta</a>
             shartlariga va
-            <a href="#" class="text-blue-600 hover:underline">
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">
               Shaxsiy ma’lumotlarni qayta ishlash siyosatiga
             </a>
             rozilik bildiraman.
@@ -157,101 +179,111 @@ function submitForm() {
           Ariza yuborish
         </button>
       </form>
-      <!-- Forma tugadi -->
 
       <!-- Info card -->
       <div
-        class="one_c_style p-8 flex justify-between items-center mt-10"
-        style="background-color: #174880"
+        class="one_c_style p-8 flex flex-col xl:flex-row justify-between items-center mt-10 bg-[#174880] dark:bg-[#1e3a8a] transition-colors duration-300"
       >
-        <div>
-          <h1 class="text-4xl font-bold text-white ml-10">
-            1C UZTELECOM bilan qanday <br />
-            ishlashni boshlash mumkin
+        <div class="text-center lg:text-left">
+          <h1 class="text-2xl md:text-4xl font-bold text-white">
+            1C UZTELECOM bilan qanday ishlashni boshlash mumkin
           </h1>
-          <p class="ml-10 mt-2 text-white">Tizimda ro‘yxatdan o‘tish</p>
-          <p class="ml-10 mt-2 text-white">Profil va integratsiyani sozlash</p>
-          <p class="ml-10 mt-2 text-white">Xizmatdan foydalanishni boshlash</p>
-          <button class="ml-10 py-2 px-5 mt-6 bg-white rounded-md text-[#174880]">
+          <p class="mt-2 text-white">Tizimda ro‘yxatdan o‘tish</p>
+          <p class="mt-2 text-white">Profil va integratsiyani sozlash</p>
+          <p class="mt-2 text-white">Xizmatdan foydalanishni boshlash</p>
+          <button
+            class="mt-6 py-2 px-5 bg-white text-[#174880] dark:bg-gray-100 dark:text-blue-900 rounded-md"
+          >
             30 kun bepul
           </button>
         </div>
-        <div>
-          <img src="../assets/img/office-img.png" alt="" />
+        <div class="mt-6 lg:mt-0 flex justify-center">
+          <img src="../assets/img/office-img.png" alt="" class="w-4/5 xl:w-full" />
         </div>
       </div>
 
       <!-- Afzalliklar -->
       <div class="mt-10 pt-10 text-center">
-        <h1 class="text-5xl font-bold">
-          UZTELECOMdan 1C xizmatining <br />
-          afzalliklari
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100">
+          UZTELECOMdan 1C xizmatining afzalliklari
         </h1>
       </div>
 
-      <div class="flex justify-between mt-8">
-        <div class="space-y-6">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mt-8 gap-6">
+        <div class="space-y-6 w-full lg:w-2/3">
           <div
-            class="px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer mr-6"
+            class="px-0 md:px-6 lg:px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer border border-transparent dark:hover:border-blue-400 dark:text-gray-100"
           >
-            <h1 class="font-bold text-2xl">Infratuzilma xarajatlaridan tejash</h1>
-            <p class="text-base">
+            <h1 class="font-bold text-xl md:text-2xl">Infratuzilma xarajatlaridan tejash</h1>
+            <p class="text-base text-gray-700 dark:text-gray-300">
               Serverlar xarid qilish yoki IT-mutaxassislarni yollash shart emas.
             </p>
           </div>
 
           <div
-            class="px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer mr-6"
+            class="px-0 md:px-6 lg:px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer border border-transparent dark:hover:border-blue-400 dark:text-gray-100"
           >
-            <h1 class="font-bold text-2xl">Avtomatik yangilanishlar</h1>
-            <p class="text-base">
-              Murakkab yangilanishlar, versiyalar mosligi yoki vaqtincha to‘xtab qolishlar haqida
-              unuting.
+            <h1 class="font-bold text-xl md:text-2xl">Avtomatik yangilanishlar</h1>
+            <p class="text-base text-gray-700 dark:text-gray-300">
+              Murakkab yangilanishlar va vaqtincha to‘xtab qolishlar haqida unuting.
             </p>
           </div>
 
           <div
-            class="px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer mr-6"
+            class="px-0 md:px-6 lg:px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer border border-transparent dark:hover:border-blue-400 dark:text-gray-100"
           >
-            <h1 class="font-bold text-2xl">24/7 foydalanish imkoniyati</h1>
-            <p class="text-base">
-              1C tizimingizdan istalgan vaqt va istalgan joyda foydalanishingiz mumkin.
+            <h1 class="font-bold text-xl md:text-2xl">24/7 foydalanish imkoniyati</h1>
+            <p class="text-base text-gray-700 dark:text-gray-300">
+              1C tizimingizdan istalgan vaqt va joyda foydalanishingiz mumkin.
             </p>
           </div>
 
           <div
-            class="px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer mr-6"
+            class="px-0 md:px-6 lg:px-6 py-2 hover:border-2 hover:border-blue-600 rounded-lg transition cursor-pointer border border-transparent dark:hover:border-blue-400 dark:text-gray-100"
           >
-            <h1 class="font-bold text-2xl">Foydalanuvchilarni o‘qitish</h1>
-            <p class="text-base">
-              Avval 1C bilan ishlamagan bo‘lsangiz ham, UZTELECOM bilan boshlash oson.
+            <h1 class="font-bold text-xl md:text-2xl">Foydalanuvchilarni o‘qitish</h1>
+            <p class="text-base text-gray-700 dark:text-gray-300">
+              UZTELECOM bilan boshlash oson, hatto yangilar uchun ham.
             </p>
           </div>
         </div>
-        <img class="rounded-3xl" src="../assets/img/minora.png" alt="" />
+        <img class="rounded-3xl w-full lg:w-3/5" src="../assets/img/minora.png" alt="" />
       </div>
 
       <!-- Oylik/Yillik switch -->
-      <div class="flex items-center mt-10">
-        <p class="text-lg font-bold">Oylik</p>
-        <label class="switch ml-3">
-          <input type="checkbox" />
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-10 pl-2 sm:pl-8">
+        <p
+          :class="checked ? 'text-gray-500' : 'text-gray-900 dark:text-gray-100'"
+          class="text-lg font-bold"
+        >
+          Oylik
+        </p>
+        <label class="switch">
+          <input type="checkbox" v-model="checked" />
           <span class="slider"></span>
         </label>
-        <p class="ml-2 text-base" style="color: #7d8288">Yillik</p>
+        <p
+          :class="checked ? 'text-gray-900 dark:text-gray-100' : 'text-gray-500'"
+          class="text-base ml-4 font-bold"
+        >
+          Yillik
+        </p>
+
         <div
-          class="px-6 py-2 ml-20 bg-blue-200 text-blue-900 text-sm font-bold rounded-full border-2 border-blue-200 hover:border-blue-600 transition text-center inline-block"
+          class=" py-2 bg-blue-200 dark:bg-blue-900 text-blue-900 dark:text-blue-200 text-sm font-bold rounded-full border-2 border-blue-200 dark:border-blue-800 hover:border-blue-600 transition-colors text-center"
         >
           20% tejab qolasiz
         </div>
       </div>
 
-      <!-- Tariff karta -->
-      <div class="flex justify-around">
-        <div class="flex flex-col mt-10 mx-10 p-6 border rounded-xl shadow-md">
-          <h2 class="text-xl font-bold">Bazaviy</h2>
-          <p class="text-lg font-semibold">200 000 so'm/oyiga*</p>
-          <ul class="space-y-2 mt-4">
+      <!-- Tariff kartalar -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div
+          class="flex flex-col p-6 border rounded-xl shadow-md bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300"
+        >
+          <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">Bazaviy</h2>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">200 000 so'm/oyiga*</p>
+          <ul class="space-y-2 mt-4 text-gray-700 dark:text-gray-300">
             <li class="flex items-center">
               <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
               1С:ИТС axborot tizimi
@@ -269,245 +301,104 @@ function submitForm() {
               Elektron hujjat aylanishi tizimi
             </li>
           </ul>
-          <div class="flex space-x-4 mt-6">
-            <button class="py-2 px-5 bg-blue-800 rounded-md text-white">Sotib olish</button>
-            <button class="py-2 px-5 bg-gray-200 rounded-md text-gray-700">Batafsil</button>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <button class="py-2 px-5 bg-blue-800 rounded-md text-white hover:bg-blue-900">
+              Sotib olish
+            </button>
+            <button
+              class="py-2 px-5 bg-gray-200 dark:bg-gray-700 dark:text-gray-100 rounded-md text-gray-700"
+            >
+              Batafsil
+            </button>
           </div>
         </div>
-        <div class="flex flex-col mt-10 mx-10 p-6 border rounded-xl shadow-md">
-          <h2 class="text-xl font-bold">Bazaviy</h2>
-          <p class="text-lg font-semibold">200 000 so'm/oyiga*</p>
-          <ul class="space-y-2 mt-4">
+        <div
+          class="flex flex-col p-6 border rounded-xl shadow-md bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300"
+        >
+          <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">Standart</h2>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">360 000 so'm/oyiga*</p>
+          <ul class="space-y-2 mt-4 text-gray-700 dark:text-gray-300">
+            <li class="flex items-center">
+              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
+              1С:ИТС axborot tizimi
+            </li>
+                <li class="flex items-center">
+              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
+              Bir vaqtning oʻzida 2 nafar foydalanuvchi ishlashi mumkin*
+            </li>
+            <li class="flex items-center">
+              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
+              1C:Nomenklatura
+            </li>
+            <li class="flex items-center">
+              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
+              Asosiy vositalar qayta baholash indekslarini yuklash
+            </li>
+            <li class="flex items-center"></li>
+          </ul>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <button class="py-2 px-5 bg-blue-800 rounded-md text-white hover:bg-blue-900">
+              Sotib olish
+            </button>
+            <button
+              class="py-2 px-5 bg-gray-200 dark:bg-gray-700 dark:text-gray-100 rounded-md text-gray-700"
+            >
+              Batafsil
+            </button>
+          </div>
+        </div>
+        <div
+          class="flex flex-col p-6 border rounded-xl shadow-md bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors duration-300"
+        >
+          <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">PROFI</h2>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">460 000 so'm/oyiga*</p>
+          <ul class="space-y-2 mt-4 text-gray-700 dark:text-gray-300 justify-center">
             <li class="flex items-center">
               <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
               1С:ИТС axborot tizimi
             </li>
             <li class="flex items-center">
               <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Bir vaqtning oʻzida 1 nafar foydalanuvchi ishlashi mumkin*
+              Bir vaqtning oʻzida 5 nafar foydalanuvchi ishlashi mumkin*
             </li>
             <li class="flex items-center">
               <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Elektron hisobot tizimi
+              1C:Nomenklatura
             </li>
             <li class="flex items-center">
               <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Elektron hujjat aylanishi tizimi
+              Asosiy vositalar qayta baholash <br>indekslarini yuklash
             </li>
           </ul>
-          <div class="flex space-x-4 mt-6">
-            <button class="py-2 px-5 bg-blue-800 rounded-md text-white">Sotib olish</button>
-            <button class="py-2 px-5 bg-gray-200 rounded-md text-gray-700">Batafsil</button>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <button class="py-2 px-5 bg-blue-800 rounded-md text-white hover:bg-blue-900">
+              Sotib olish
+            </button>
+            <button
+              class="py-2 px-5 bg-gray-200 dark:bg-gray-700 dark:text-gray-100 rounded-md text-gray-700"
+            >
+              Batafsil
+            </button>
           </div>
         </div>
-        <div class="flex flex-col mt-10 mx-10 p-6 border rounded-xl shadow-md">
-          <h2 class="text-xl font-bold">Bazaviy</h2>
-          <p class="text-lg font-semibold">200 000 so'm/oyiga*</p>
-          <ul class="space-y-2 mt-4">
-            <li class="flex items-center">
-              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              1С:ИТС axborot tizimi
-            </li>
-            <li class="flex items-center">
-              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Bir vaqtning oʻzida 1 nafar foydalanuvchi ishlashi mumkin*
-            </li>
-            <li class="flex items-center">
-              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Elektron hisobot tizimi
-            </li>
-            <li class="flex items-center">
-              <img src="../assets/icons/Icon wrapper.svg" alt="chaqmoq" class="mr-2" />
-              Elektron hujjat aylanishi tizimi
-            </li>
-          </ul>
-          <div class="flex space-x-4 mt-6">
-            <button class="py-2 px-5 bg-blue-800 rounded-md text-white">Sotib olish</button>
-            <button class="py-2 px-5 bg-gray-200 rounded-md text-gray-700">Batafsil</button>
-          </div>
-        </div>
+
+        <!-- Shu tarzda qolgan kartalarga ham dark klasslar qo‘llaniladi -->
       </div>
-      <!-- Tariff karta tugadi -->
-      <div class="flex text-start tx-sm mt-10 mb-20">
-        <div class="w-1/3">
-          <span>FAQ</span>
-          <p class="text-5xl font-bold mt-2">Ko'p so'raladigan savollar</p>
-          <p class="mt-4 text-base flex justify-wrap" style="color: #4d5055">
+
+      <!-- FAQ qismi -->
+      <div class="flex items-start justify-between flex-col lg:flex-row gap-8 my-12 mb-20">
+        <div class="lg:w-1/3 text-start lg:text-left">
+          <span class="text-gray-600 dark:text-gray-400">FAQ</span>
+          <p class="text-2xl md:text-3xl font-bold mt-2 text-gray-900 dark:text-gray-100">
+            Ko'p so'raladigan savollar
+          </p>
+          <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
             1C UZTELECOM xizmati sizning buxgalteriya hisobotlaringizni qanday soddalashtirishi va
             biznesingizni qanday samaraliroq qilishini bilib oling.
           </p>
         </div>
+        <AcardionComponent class="flex-1" />
       </div>
-
-      <div>
-        <div id="accordion-collapse" data-accordion="collapse">
-          <h2 id="accordion-collapse-heading-1">
-            <button
-              type="button"
-              class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-              data-accordion-target="#accordion-collapse-body-1"
-              aria-expanded="true"
-              aria-controls="accordion-collapse-body-1"
-            >
-              <span>What is Flowbite?</span>
-              <svg
-                data-accordion-icon
-                class="w-3 h-3 rotate-180 shrink-0"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5 5 1 1 5"
-                />
-              </svg>
-            </button>
-          </h2>
-          <div
-            id="accordion-collapse-body-1"
-            class="hidden"
-            aria-labelledby="accordion-collapse-heading-1"
-          >
-            <div
-              class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
-            >
-              <p class="mb-2 text-gray-500 dark:text-gray-400">
-                Flowbite is an open-source library of interactive components built on top of
-                Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
-              </p>
-              <p class="text-gray-500 dark:text-gray-400">
-                Check out this guide to learn how to
-                <a
-                  href="/docs/getting-started/introduction/"
-                  class="text-blue-600 dark:text-blue-500 hover:underline"
-                  >get started</a
-                >
-                and start developing websites even faster with components on top of Tailwind CSS.
-              </p>
-            </div>
-          </div>
-          <h2 id="accordion-collapse-heading-2">
-            <button
-              type="button"
-              class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-              data-accordion-target="#accordion-collapse-body-2"
-              aria-expanded="false"
-              aria-controls="accordion-collapse-body-2"
-            >
-              <span>Is there a Figma file available?</span>
-              <svg
-                data-accordion-icon
-                class="w-3 h-3 rotate-180 shrink-0"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5 5 1 1 5"
-                />
-              </svg>
-            </button>
-          </h2>
-          <div
-            id="accordion-collapse-body-2"
-            class="hidden"
-            aria-labelledby="accordion-collapse-heading-2"
-          >
-            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-              <p class="mb-2 text-gray-500 dark:text-gray-400">
-                Flowbite is first conceptualized and designed using the Figma software so everything
-                you see in the library has a design equivalent in our Figma file.
-              </p>
-              <p class="text-gray-500 dark:text-gray-400">
-                Check out the
-                <a
-                  href="https://flowbite.com/figma/"
-                  class="text-blue-600 dark:text-blue-500 hover:underline"
-                  >Figma design system</a
-                >
-                based on the utility classes from Tailwind CSS and components from Flowbite.
-              </p>
-            </div>
-          </div>
-          <h2 id="accordion-collapse-heading-3">
-            <button
-              type="button"
-              class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-              data-accordion-target="#accordion-collapse-body-3"
-              aria-expanded="false"
-              aria-controls="accordion-collapse-body-3"
-            >
-              <span>What are the differences between Flowbite and Tailwind UI?</span>
-              <svg
-                data-accordion-icon
-                class="w-3 h-3 rotate-180 shrink-0"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5 5 1 1 5"
-                />
-              </svg>
-            </button>
-          </h2>
-          <div
-            id="accordion-collapse-body-3"
-            class="hidden"
-            aria-labelledby="accordion-collapse-heading-3"
-          >
-            <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-              <p class="mb-2 text-gray-500 dark:text-gray-400">
-                The main difference is that the core components from Flowbite are open source under
-                the MIT license, whereas Tailwind UI is a paid product. Another difference is that
-                Flowbite relies on smaller and standalone components, whereas Tailwind UI offers
-                sections of pages.
-              </p>
-              <p class="mb-2 text-gray-500 dark:text-gray-400">
-                However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind
-                UI as there is no technical reason stopping you from using the best of two worlds.
-              </p>
-              <p class="mb-2 text-gray-500 dark:text-gray-400">
-                Learn more about these technologies:
-              </p>
-              <ul class="ps-5 text-gray-500 list-disc dark:text-gray-400">
-                <li>
-                  <a
-                    href="https://flowbite.com/pro/"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Flowbite Pro</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://tailwindui.com/"
-                    rel="nofollow"
-                    class="text-blue-600 dark:text-blue-500 hover:underline"
-                    >Tailwind UI</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </template>
@@ -517,7 +408,7 @@ function submitForm() {
   border-radius: 18px;
 }
 
-/* Switch */
+/* Switch CSS siz yozgandek qoldi */
 .switch {
   --button-width: 3.5em;
   --button-height: 2em;
@@ -529,7 +420,6 @@ function submitForm() {
   --color-green: #4296f4;
   width: 45px;
 }
-
 .slider {
   display: inline-block;
   width: var(--button-width);
@@ -539,7 +429,6 @@ function submitForm() {
   position: relative;
   transition: 0.3s all ease-in-out;
 }
-
 .slider::after {
   content: '';
   display: inline-block;
@@ -553,11 +442,9 @@ function submitForm() {
   box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
   transition: 0.3s all ease-in-out;
 }
-
 .switch input[type='checkbox']:checked + .slider {
   background-color: var(--color-green);
 }
-
 .switch input[type='checkbox']:checked + .slider::after {
   transform: translateX(
     calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset))
@@ -565,15 +452,12 @@ function submitForm() {
   box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4)
     rgba(0, 0, 0, 0.1);
 }
-
 .switch input[type='checkbox'] {
   display: none;
 }
-
 .switch input[type='checkbox']:active + .slider::after {
   width: var(--toggle-wider);
 }
-
 .switch input[type='checkbox']:checked:active + .slider::after {
   transform: translateX(
     calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset))
