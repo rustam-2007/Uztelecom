@@ -23,6 +23,11 @@ const router = createRouter({
       name: 'advantages',
       component: () => import('../pages/AdvantagesView.vue'),
     },
+    {
+      path: '/start',
+      name: 'start',
+      component: () => import('../pages/StartView.vue'),
+    },
   ],
 })
 
