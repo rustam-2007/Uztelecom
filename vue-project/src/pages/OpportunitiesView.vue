@@ -26,8 +26,8 @@
           <!-- CARD LIST -->
           <div class="flex justify-center lg:justify-between flex-wrap gap-6 sm:gap-10 mt-10 sm:mt-20 mb-20">
             <!-- card start  -->
-            <div v-for="n in 5" :key="n" :id="`title-${n}`"
-              class="w-full sm:w-[48%] lg:w-[25%] rounded-2xl bg-[#174880] dark:bg-blue-900 transition-colors duration-500">
+            <div v-for="n in 3" :key="n"
+              class="p-6 w-full sm:w-[48%] lg:w-[25%] rounded-2xl bg-[#174880] dark:bg-blue-900 transition-colors duration-500">
               <div>
                 <img src="../assets/icons/card-icon.svg" alt="" />
               </div>
@@ -37,7 +37,6 @@
                 Bazangizni yuklab beramiz — <br />15 daqiqada ishga kirishasiz.
               </p>
             </div>
-
             <!-- <div
               class="p-6 w-full sm:w-[48%] lg:w-[25%] rounded-2xl bg-[#174880] dark:bg-blue-900 transition-colors duration-500">
               <div>
