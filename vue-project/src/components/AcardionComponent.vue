@@ -1,77 +1,65 @@
 <template>
-  <div class="w-full max-w-lg mx-auto divide-y divide-gray-200 rounded-md border">
+  <div
+    class="w-full my-6 max-w-lg divide-y rounded-md border shadow-md transition-colors duration-300 ease-in-out border-gray-200 bg-white text-gray-900 dark:border-gray-700 dark:bg-[#0E131E] dark:text-white"
+  >
     <div v-for="(item, index) in items" :key="index">
       <!-- Header -->
       <button
-        class="w-full flex justify-start items-center p-4 text-left font-medium hover:bg-gray-50"
+        class="w-full flex justify-between items-center p-4 text-left font-medium transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-[#1A2234]"
         @click="toggle(index)"
       >
-        <div>
-          <!-- Agar yopiq bo‘lsa PLUS -->
-          <svg
-            v-if="openIndex !== index"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1024 1024"
-            class="w-5 h-5"
-          >
-            <path
-              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              fill="currentColor"
-            />
-            <path
-              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              fill="currentColor"
-            />
-          </svg>
-          <!-- Agar ochiq bo‘lsa MINUS -->
-          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="w-5 h-5">
-            <path
-              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-        <span class="ml-7">{{ item.title }}</span>
+        <span
+          class="left-border border-blue-600 text-gray-900 dark:border-blue-400 dark:text-white transition-colors duration-300"
+        >
+          {{ item.title }}
+        </span>
+
+        <svg
+          class="w-5 h-5 transform transition-transform duration-300"
+          :class="{ 'rotate-180': openIndex === index }"
+          fill="none"
+          viewBox="0 0 24 24"
+          :stroke="isDark ? 'white' : 'black'"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
       </button>
 
       <!-- Content -->
-      <div v-show="openIndex === index" class="p-4 text-gray-600">
-        {{ item.content }}
-      </div>
+      <transition name="accordion">
+        <div
+          v-show="openIndex === index"
+          class="p-4 leading-relaxed transition-colors duration-300 ease-in-out bg-gray-50 text-gray-700 dark:bg-[#141A27] dark:text-gray-300"
+        >
+          {{ item.content }}
+        </div>
+      </transition>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
+
+// 🔹 `App.vue` ichidan `provide('isDark', isDark)` bilan o‘tadi
+const isDark = inject('isDark', ref(false))
 
 const openIndex = ref(null)
 
 const items = [
+  { title: 'Brauzerda ishlash', content: 'Brauzerda ishlash uchun birinchi accordion mazmuni.' },
   {
-    title: 'Qo‘lda yangilashlarga ehtiyoj yo‘q',
-    content:
-      '1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq boshlang.',
+    title: 'Internet sekin bo‘lsa ham ishlash mumkinmi?',
+    content: 'Ha, tizim past tezlikdagi internet bilan ham ishlaydi.',
   },
   {
-    title: 'Ma’lumotlarning ishonchli himoyasi',
-    content:
-      ' 1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq boshlang.',
-  },
-  {
-    title: '1c Istalgan ehtiyoj uchun mos tariflar',
-    content:
-      ' 1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq boshlang.',
-  },
-  {
-    title: 'Bitta bazada birgalikda ishlash',
-    content:
-      ' 1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq boshlang.',
-  },
-  {
-    title: '24/7 texnik qo‘llab-quvvatlash',
-    content:
-      '1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq boshlang.',
+    title: 'Uyda yoki ta’tilda ishlash mumkinmi?',
+    content: 'Ha, tizim onlayn bo‘lgani uchun istalgan joyda ishlash mumkin.',
   },
 ]
 
@@ -84,5 +72,21 @@ function toggle(index) {
 .left-border {
   border-left: 4px solid;
   padding-left: 8px;
+}
+
+/* Accordion animatsiyasi */
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: all 0.3s ease;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+.accordion-enter-to,
+.accordion-leave-from {
+  max-height: 200px;
+  opacity: 1;
 }
 </style>
