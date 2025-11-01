@@ -28,6 +28,16 @@ const router = createRouter({
       name: 'start',
       component: () => import('../pages/StartView.vue'),
     },
+    {
+      path: '/start',
+      name: 'start',
+      component: () => import('../pages/StartView.vue'),
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: () => import('../pages/FaqView.vue'),
+    },
   ],
 })
 
