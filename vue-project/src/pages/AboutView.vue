@@ -3,9 +3,7 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
 </script>
 
 <template>
-  <div
-    class="px-8 bg-white dark:bg-[#0f172a] text-[#000000] dark:text-gray-200 transition-colors duration-300"
-  >
+  <div class="px-8 bg-white dark:bg-[#0f172a] text-[#000000] dark:text-gray-200 transition-colors duration-300">
     <div>
       <div class="flex justify-start">
         <p class="text-4xl mt-7 md:mt-3 font-bold mb-3 text-[#000000] dark:text-white">
@@ -15,9 +13,7 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
 
       <div class="flex flex-col md:flex-row justify-between">
         <div class="w-full md:w-1/2">
-          <p
-            class="text-[#000000] dark:text-gray-300 text-xl text-start leading-relaxed max-w-5xl mx-auto"
-          >
+          <p class="text-[#000000] dark:text-gray-300 text-xl text-start leading-relaxed max-w-5xl mx-auto">
             “1C:Предприятие 8” internet orqali ishlash xizmati (1C UZTELECOM) — “1C” kompaniyasi
             tomonidan ishlab chiqilgan va qo‘llab-quvvatlanadigan xizmat bo‘lib, bu kompaniya
             Rossiyada biznesni avtomatlashtirish bo‘yicha yetakchi hisoblanadi. <br />
@@ -31,50 +27,26 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
         </div>
 
         <div class="hidden md:grid grid-cols-3 gap-3">
-          <div
-            class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]"
-          ></div>
+          <div class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]"></div>
           <div class="flex justify-center items-center w-40 h-32 overflow-hidden rounded-[50px]">
             <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="w-full object-cover" />
           </div>
           <div class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]">
-            <img
-              src="../assets/img/Thumbnail.jpg"
-              alt="Thumbnail"
-              class="sm:w-full w-full h-full object-cover"
-            />
+            <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="sm:w-full w-full h-full object-cover" />
           </div>
           <div class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]">
-            <img
-              src="../assets/img/Thumbnail.jpg"
-              alt="Thumbnail"
-              class="w-full h-full object-cover"
-            />
+            <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="w-full h-full object-cover" />
           </div>
           <div class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]">
-            <img
-              src="../assets/img/Thumbnail.jpg"
-              alt="Thumbnail"
-              class="w-full h-full object-cover"
-            />
+            <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="w-full h-full object-cover" />
           </div>
           <div class="flex justify-center items-center w-32 h-32 overflow-hidden rounded-[50px]">
-            <img
-              src="../assets/img/Thumbnail.jpg"
-              alt="Thumbnail"
-              class="w-full h-full object-cover"
-            />
+            <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="w-full h-full object-cover" />
           </div>
         </div>
         <div class="grid mt-4 md:hidden grid-cols-1 justify-self-start">
-          <div
-            class="flex justify-center items-center w-56 h-56 overflow-hidden rounded-[50px] sm:scale-y-30"
-          >
-            <img
-              src="../assets/img/Thumbnail.jpg"
-              alt="Thumbnail"
-              class="w-full h-full object-cover"
-            />
+          <div class="flex justify-center items-center w-56 h-56 overflow-hidden rounded-[50px] sm:scale-y-30">
+            <img src="../assets/img/Thumbnail.jpg" alt="Thumbnail" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -99,15 +71,7 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
     </div>
 
     <div class="flex my-10 justify-center">
-      <video
-        width="100%"
-        height="1240"
-        autoplay
-        muted
-        playsinline
-        controls
-        class="rounded-xl shadow-lg"
-      >
+      <video width="100%" height="1240" autoplay muted playsinline controls class="rounded-xl shadow-lg">
         <source src="../assets/video/uztelecom-video.mp4" type="video/mp4" />
         Sizning brauzeringiz videoni qo‘llab-quvvatlamaydi.
       </video>
@@ -117,20 +81,14 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
       <h5 class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl">
         1C Uztelecom
       </h5>
-      <h1
-        class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl my-5"
-      >
+      <h1 class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl my-5">
         Xizmat afzalliklari
       </h1>
-      <h1
-        class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl mb-4"
-      >
+      <h1 class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl mb-4">
         24/7 onlayn kirish imkoniyati
       </h1>
 
-      <p
-        class="flex justify-center text-center text-sm leading-relaxed max-w-2xl mx-auto dark:text-gray-300"
-      >
+      <p class="flex justify-center text-center text-sm leading-relaxed max-w-2xl mx-auto dark:text-gray-300">
         1C UZTELECOMda istalgan vaqtda, istalgan joydan ishlashingiz mumkin — ofisda bo‘ling, uyda
         yoki safarda. Sizga faqat barqaror internet kerak, xolos. Endi biror kompyuterga yoki ofisga
         bog‘lanib qolishingiz shart emas: brauzeringizni oching va buxgalteriya ishlarini hoziroq
@@ -143,30 +101,23 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
 
       <img src="../assets/icons/Vector.svg" alt="iskra" class="mx-auto" />
 
-      <p
-        class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl mb-10"
-      >
+      <p class="flex justify-center text-center font-bold text-[#000000] dark:text-white text-2xl mb-10">
         1C UZTELECOM bilan biznes tahlilning kelajagini his eting
       </p>
 
-      <p
-        class="flex justify-center text-center text-sm leading-relaxed max-w-xl mx-auto my-2 dark:text-gray-300"
-      >
+      <p class="flex justify-center text-center text-sm leading-relaxed max-w-xl mx-auto my-2 dark:text-gray-300">
         1C UZTELECOM imkoniyatlarini amalda sinab ko‘ring va farqni o‘zingiz his eting. Bepul sinov
         muddatini bugunoq boshlang!
       </p>
 
       <button
-        class="btn_style flex items-center justify-center mx-auto gap-2 px-4 py-2 text-sm rounded-md mt-10 dark:bg-indigo-700 dark:hover:bg-indigo-600"
-      >
+        class="btn_style flex items-center justify-center mx-auto gap-2 px-4 py-2 text-sm rounded-md mt-10 dark:bg-indigo-700 dark:hover:bg-indigo-600">
         Bepul ulanish
         <img src="../assets/icons/btn-icon.svg" alt="" class="size-4" />
       </button>
 
       <div>
-        <h1
-          class="flex justify-start text-center font-bold text-[#000000] dark:text-white text-2xl mt-10 mb-10"
-        >
+        <h1 class="flex justify-start text-center font-bold text-[#000000] dark:text-white text-2xl mt-10 mb-10">
           Fresh bulutli subsistemasi
         </h1>
         <p class="dark:text-gray-300">
@@ -208,37 +159,24 @@ import AcardionComponent from '@/components/AcardionComponent.vue'
         <form class="w-full max-w-lg rounded-2xl bg-gray-50 dark:bg-gray-800">
           <label class="block">
             <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Email:</span>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg"
-            />
+            <input type="email" placeholder="you@example.com"
+              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg" />
           </label>
 
           <label class="block">
-            <span class="text-lg font-semibold text-gray-800 dark:text-gray-200"
-              >Ismingiz va familyangiz</span
-            >
-            <input
-              type="text"
-              placeholder="Ismingiz va familyangizni kiriting"
-              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg"
-            />
+            <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Ismingiz va familyangiz</span>
+            <input type="text" placeholder="Ismingiz va familyangizni kiriting"
+              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg" />
           </label>
 
           <label class="block">
             <span class="text-lg font-semibold text-gray-800 dark:text-gray-200">Xabar</span>
-            <input
-              type="text"
-              placeholder="Xabaringizni kiriting"
-              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg"
-            />
+            <input type="text" placeholder="Xabaringizni kiriting"
+              class="mt-2 block w-full rounded-xl border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white shadow-md focus:ring-2 focus:ring-indigo-500 px-4 py-3 text-lg" />
           </label>
 
-          <button
-            type="submit"
-            class="my-5 w-full bg-[#174880] hover:bg-[#1d5799] dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white text-lg font-semibold py-3 rounded-xl shadow-md transition duration-200"
-          >
+          <button type="submit"
+            class="my-5 w-full bg-[#174880] hover:bg-[#1d5799] dark:bg-indigo-700 dark:hover:bg-indigo-600 text-white text-lg font-semibold py-3 rounded-xl shadow-md transition duration-200">
             Yuborish
           </button>
         </form>
