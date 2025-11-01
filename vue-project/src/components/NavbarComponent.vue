@@ -36,7 +36,7 @@
 
         <!-- Burger (mobile) -->
         <div class="block lg:hidden">
-          <button @click="isOpen = !isOpen">
+          <button @click="toggleMenu">
             <svg v-if="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -88,6 +88,7 @@ import { ref, watchEffect } from 'vue'
 
 const isOpen = ref(false)
 const isDark = ref(false)
+let closeTimer = null // menyuni yopish taymeri
 
 const navbarItems = ref([
   { name: 'Xizmat haqida', link: '/about' },
@@ -98,10 +99,12 @@ const navbarItems = ref([
   { name: 'Tariflar', link: '/tarifs' },
 ])
 
+// 🌗 Tema almashtirish
 const toggleTheme = () => {
   isDark.value = !isDark.value
 }
 
+// 🌙 Dark mode qo‘llash
 watchEffect(() => {
   if (isDark.value) {
     document.documentElement.classList.add('dark')
@@ -109,6 +112,19 @@ watchEffect(() => {
     document.documentElement.classList.remove('dark')
   }
 })
+
+// 🍔 Burger menyuni ochish/yopish + avtomatik yopilish
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value
+
+  // agar menyu ochilgan bo‘lsa, 5 soniyadan so‘ng yopiladi
+  if (isOpen.value) {
+    clearTimeout(closeTimer)
+    closeTimer = setTimeout(() => {
+      isOpen.value = false
+    }, 5000) // ⏱ bu yerda 5000 — 5 soniya, xohlagancha o‘zgartiring
+  }
+}
 </script>
 
 <style>

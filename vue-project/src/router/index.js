@@ -36,12 +36,12 @@ const router = createRouter({
      {
       path: '/faq',
       name: 'faq',
-      component: () => import('../pages/FaqViewv.vue'),
+      component: () => import('../pages/FaqView.vue'),
     },
-         {
-      path: '/faq2',
-      name: 'faq',
-      component: () => import('../pages/homePageTest.vue'),
+      {
+      path: '/login',
+      name: 'login',
+      component: () => import('../pages/LoginViews.vue'),
     },
   ],
 })
