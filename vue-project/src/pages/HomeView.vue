@@ -74,9 +74,9 @@ function submitForm() {
             30 kun bepul
           </button>
         </div>
-        <div class="mt-6 lg:mt-0 flex justify-center">
+        <!-- <div class="mt-6 lg:mt-0 flex justify-center">
           <img src="../assets/img/office-img.png" alt="" class="w-4/5 xl:w-full" />
-        </div>
+        </div> -->
 
       </div>
 
