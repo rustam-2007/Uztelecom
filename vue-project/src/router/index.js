@@ -38,6 +38,11 @@ const router = createRouter({
       name: 'faq',
       component: () => import('../pages/FaqView.vue'),
     },
+    {
+      path: '/tarifs',
+      name: 'tarifs',
+      component: () => import('../pages/TarifsView.vue'),
+    },
   ],
 })
 
